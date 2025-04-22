@@ -24,7 +24,7 @@ class MySession(requests.Session):
 class SchoolLive:
     ppt_list = []
     existing_ppt_urls = set()
-    session = MySession()
+    client = MySession()
 
     @staticmethod
     def extract_tenant_code_from_set_cookie(tenant_code_cookie_str: str):
@@ -51,7 +51,6 @@ class SchoolLive:
 
         # Step 2: Extract the length and token if found
         if match:
-            token_length = int(match.group(1))  # The length of the token
             token = match.group(2)  # The token itself
             return token
         else:
@@ -59,12 +58,13 @@ class SchoolLive:
 
     def __init__(self, cookie_header: str):
         super().__init__()
-        self.session.headers.update({
+        token, tenant_code = self.get_token_from_cookie_header(cookie_header)
+        self.client.headers.update({
             'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
             'Accept': "application/json, text/plain, */*",
             'Accept-Encoding': "gzip, deflate, br, zstd",
             'sec-ch-ua-platform': "\"macOS\"",
-            'authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiMjIwMTYzMDIxNiIsImNtY0dyb3VwQ29kZSI6IjIxNDEwMDAwMDAiLCJjbWNHcm91cElkIjoiNTQyNzBmODE3MGRhMzM0MTU1Zjc0MzY2Njc1NDhmZjUiLCJjdXJyZW50Um9sZSI6InN0dWRlbnQiLCJleHAiOjE3NDUyODE0MDEsImxvZ2luVHlwZSI6ImRlZmF1bHQiLCJtcm9sZXMiOlt7ImNtY19yb2xlIjoiNTkwNjAzN2M1Y2QzMDVmZmJiNWNiYWJlMTRjNzA3MjMiLCJjb2RlIjoic3R1ZGVudCIsImNyZWF0ZWRfYXQiOiIyMDE4LTAzLTE3IDEwOjQ3OjA2IiwiZGVzY3JpcHRpb24iOiIiLCJkaXNwbGF5X25hbWUiOiLlrabnlJ8iLCJpZCI6MTUsImlzZGVmYXVsdCI6MSwic3RhdHVzIjowfV0sInBhc3N3b3JkIjoiMjQ3MWI0N2I4MDUxOTEzNjMxMzk3YWE2MWFmNGUyODciLCJyZWFsbmFtZSI6Iumfpueri-i1niIsInN1YiI6ODM4MzcsInRlbmFudF9pZCI6MjF9.YSPn_L3yo27yyxuUUQkDLjJ5gP1Cd694w2LLymkdtT0",
+            'authorization': f"Bearer {token}",
             'accept-language': "zh_cn",
             'sec-ch-ua': "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"",
             'sec-ch-ua-mobile': "?0",
@@ -122,7 +122,7 @@ class SchoolLive:
             image_path = os.path.join(ppt_directory, image_name)
 
             # Download the image
-            img_data = self.session.get(image_url).content
+            img_data = self.client.get(image_url).content
             with open(image_path, 'wb') as img_file:
                 img_file.write(img_data)
 
@@ -136,7 +136,7 @@ class SchoolLive:
 
     def get_list(self, course_id: int, course_real_id: int, window, label):
         url = f"https://classroom.guet.edu.cn/pptnote/v1/schedule/search-ppt?course_id={course_id}&sub_id={course_real_id}&page=1&per_page=100"
-        response = self.session.get(url)
+        response = self.client.get(url)
         data = response.json()
 
         new_ppt_found = False  # Flag to track if any new PPTs were found
@@ -170,19 +170,19 @@ class SchoolLive:
 
     def get_week_schedules(self, token: str, start_date: str, end_date: str, tenant_id: str, user_real_id: int):
         url = f"https://classroom.guet.edu.cn/courseapi/v2/schedule/get-week-schedules?user_id={user_real_id}&tenant_id={tenant_id}&start_at={start_date}&end_at={end_date}&token={token}"
-        response = self.session.get(url)
+        response = self.client.get(url)
         data = response.json()
         return data
 
     def get_info_simple(self):
         url = f"https://classroom.guet.edu.cn/userapi/v1/infosimple"
-        response = self.session.get(url)
+        response = self.client.get(url)
         data = response.json()
         return data
 
     def get_token(self) -> (str, str):
         url = f"https://classroom.guet.edu.cn/casapi/index.php?r=auth/login&forward=https%3A%2F%2Fclassroom.guet.edu.cn%2Fcoursepage&code=OC469928w7HzCFx3aCAKBPvKsxcngL2CyDDcyhW"
-        response = self.session.get(url, allow_redirects=False)
+        response = self.client.get(url, allow_redirects=False)
         cookies = response.headers.get("set-cookie")
         print(cookies)
         token = None
@@ -196,9 +196,9 @@ class SchoolLive:
 
         return token, tenant_code
 
-    def get_token_from_local_cookie(self) -> (str, str):
-        cookies = self.session.headers.get("cookie").split(";")
-        print(cookies)
+    def get_token_from_cookie_header(self, cookie_header: str) -> (str, str):
+        cookies = cookie_header.split(";")
+
         token = None
         tenant_code = None
         for cookie in cookies:
@@ -210,6 +210,13 @@ class SchoolLive:
                 tenant_code = SchoolLive.extract_tenant_code_from_cookie(decoded_cookie)
 
         return token, tenant_code
+
+    def get_pong_reply(self):
+        reply_bytes = bytearray([
+            0x00, 0x00, 0x00, 0x10, 0x00, 0x10, 0x00, 0x01,
+            0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01
+        ])
+        return reply_bytes
 
     async def start_ppt_listener(self, user_id: int, course_real_id: int, cookie: str):
         headers = {
@@ -291,13 +298,13 @@ def get_weekday_int():
     # Get today's date
     today = datetime.now().weekday()
     # Get the weekday (0 = Monday, 6 = Sunday)
-    weekday_int = today + 1
+    weekday_int = today
     return weekday_int
 
 def get_course_id(week_schedules) -> (str, str):
     # Print week schedule details
-    day = get_weekday_int()
-    day_schedule = week_schedules['result']['list'][day-1]
+    day = get_weekday_int() - 1
+    day_schedule = week_schedules['result']['list'][day]
     for j, course in enumerate(day_schedule['course']):
         print(f"  Course {j+1}:")
         print(f"    Title: {course['course_title']}")
@@ -308,11 +315,10 @@ def get_course_id(week_schedules) -> (str, str):
         print()
 
     # Get user input for course selection
-    day_index = day - 1
     course_index = int(input("输入课程索引（从1开始）："))
 
     # Retrieve the course_real_id and course_id based on input
-    selected_course = week_schedules['result']['list'][day_index]['course'][course_index - 1]
+    selected_course = week_schedules['result']['list'][day]['course'][course_index - 1]
     course_real_id = selected_course['id']
     course_id = selected_course['course_id']
 
@@ -325,7 +331,7 @@ print("Sunday:", sunday)
 
 cookie = input("请从浏览器拷贝 cookie header 的值过来：").strip()
 live = SchoolLive(cookie)
-token, tenant_code = live.get_token_from_local_cookie()
+token, tenant_code = live.get_token_from_cookie_header(cookie)
 
 print("token:", token)
 print("tenant_code:", tenant_code)
@@ -341,18 +347,18 @@ week_schedules = live.get_week_schedules(user_real_id=user_id, tenant_id=tenant_
 
 course_id, course_real_id = get_course_id(week_schedules)
 
-async def main():
-    await live.start_ppt_listener(user_id=user_id, course_real_id=course_real_id, cookie=live.session.headers.get("cookie"))
+# async def main():
+#     await liveve.start_ppt_listener(user_id=user_id, course_real_id=course_real_id, cookie=live.client.headers.get("cookie"))
 
-# window = tk.Tk()
-# window.title("Latest PPT Viewer")
-# window.geometry("800x450")
-# # Label to show the PPT image
-# label = tk.Label(window)
-# label.pack()
-# while True:
-#     print("正在搜索ppt")
-#     tron_class.get_list(course_id=course_id, course_real_id=course_real_id, window=window, label=label)
-#     sleep(1)
+window = tk.Tk()
+window.title("Latest PPT Viewer")
+window.geometry("800x450")
+# Label to show the PPT image
+label = tk.Label(window)
+label.pack()
+while True:
+    print("正在搜索ppt")
+    live.get_list(course_id=course_id, course_real_id=course_real_id, window=window, label=label)
+    sleep(1)
 
-asyncio.run(main())
+# asyncio.run(main())
