@@ -1,0 +1,212 @@
+{
+  "success": true,
+  "result": {
+    "code": 200,
+    "msg": "",
+    "list": [
+      {
+        "day": "2025-04-21",
+        "course": [
+          {
+            "sub_review_type": "1",
+            "room_id": "XXX",
+            "room_name": "Room A",
+            "id": "XXXXXX",
+            "course_id": "XXXX",
+            "status": "6",
+            "start_at": "1745195051",
+            "end_at": "1745200800",
+            "begin_time": "1745195051",
+            "lecturer_name": "Lecturer A",
+            "is_live": "1",
+            "is_public": "2",
+            "multi_type": "course_live",
+            "course_title": "Course 1",
+            "teacher_name": "Lecturer A"
+          },
+          {
+            "sub_review_type": "1",
+            "room_id": "XXX",
+            "room_name": "Room B",
+            "id": "XXXXXX",
+            "course_id": "XXXX",
+            "status": "1",
+            "start_at": "1745202252",
+            "end_at": "1745208000",
+            "begin_time": "1745202252",
+            "lecturer_name": "Lecturer B",
+            "is_live": "1",
+            "is_public": "2",
+            "multi_type": "course_live",
+            "course_title": "Course 2",
+            "teacher_name": "Lecturer B"
+          },
+          {
+            "sub_review_type": "1",
+            "room_id": "XXX",
+            "room_name": "Room C",
+            "id": "XXXXXX",
+            "course_id": "XXXX",
+            "status": "2",
+            "start_at": "1745217000",
+            "end_at": "1745222700",
+            "begin_time": "0",
+            "lecturer_name": "Lecturer C",
+            "is_live": "1",
+            "is_public": "2",
+            "multi_type": "course_live",
+            "course_title": "Course 3",
+            "teacher_name": "Lecturer C"
+          }
+        ]
+      },
+      {
+        "day": "2025-04-22",
+        "course": [
+          {
+            "sub_review_type": "1",
+            "room_id": "XXX",
+            "room_name": "Room D",
+            "id": "XXXXXX",
+            "course_id": "XXXX",
+            "status": "2",
+            "start_at": "1745281500",
+            "end_at": "1745287200",
+            "begin_time": "0",
+            "lecturer_name": "Lecturer D",
+            "is_live": "1",
+            "is_public": "2",
+            "multi_type": "course_live",
+            "course_title": "Course 4",
+            "teacher_name": "Lecturer D"
+          },
+          {
+            "sub_review_type": "1",
+            "room_id": "XXX",
+            "room_name": "Room E",
+            "id": "XXXXXX",
+            "course_id": "XXXX",
+            "status": "2",
+            "start_at": "1745288700",
+            "end_at": "1745294400",
+            "begin_time": "0",
+            "lecturer_name": "Lecturer E",
+            "is_live": "1",
+            "is_public": "2",
+            "multi_type": "course_live",
+            "course_title": "Course 5",
+            "teacher_name": "Lecturer E"
+          }
+        ]
+      },
+      {
+        "day": "2025-04-23",
+        "course": [
+          {
+            "sub_review_type": "1",
+            "room_id": "XXX",
+            "room_name": "Room F",
+            "id": "XXXXXX",
+            "course_id": "XXXX",
+            "status": "2",
+            "start_at": "1745367900",
+            "end_at": "1745373600",
+            "begin_time": "0",
+            "lecturer_name": "Lecturer C",
+            "is_live": "1",
+            "is_public": "2",
+            "multi_type": "course_live",
+            "course_title": "Course 6",
+            "teacher_name": "Lecturer C"
+          },
+          {
+            "sub_review_type": "1",
+            "room_id": "XXX",
+            "room_name": "Room G",
+            "id": "XXXXXX",
+            "course_id": "XXXX",
+            "status": "2",
+            "start_at": "1745375100",
+            "end_at": "1745380800",
+            "begin_time": "0",
+            "lecturer_name": "Lecturer C",
+            "is_live": "1",
+            "is_public": "2",
+            "multi_type": "course_live",
+            "course_title": "Course 7",
+            "teacher_name": "Lecturer C"
+          }
+        ]
+      },
+      {
+        "day": "2025-04-24",
+        "course": [
+          {
+            "sub_review_type": "1",
+            "room_id": "XXX",
+            "room_name": "Room H",
+            "id": "XXXXXX",
+            "course_id": "XXXX",
+            "status": "2",
+            "start_at": "1745454300",
+            "end_at": "1745460000",
+            "begin_time": "0",
+            "lecturer_name": "Lecturer D",
+            "is_live": "1",
+            "is_public": "2",
+            "multi_type": "course_live",
+            "course_title": "Course 8",
+            "teacher_name": "Lecturer D"
+          },
+          {
+            "sub_review_type": "1",
+            "room_id": "XXX",
+            "room_name": "Room I",
+            "id": "XXXXXX",
+            "course_id": "XXXX",
+            "status": "2",
+            "start_at": "1745461500",
+            "end_at": "1745467200",
+            "begin_time": "0",
+            "lecturer_name": "Lecturer E",
+            "is_live": "1",
+            "is_public": "2",
+            "multi_type": "course_live",
+            "course_title": "Course 9",
+            "teacher_name": "Lecturer E"
+          }
+        ]
+      },
+      {
+        "day": "2025-04-25",
+        "course": [
+          {
+            "sub_review_type": "1",
+            "room_id": "XXX",
+            "room_name": "Room J",
+            "id": "XXXXXX",
+            "course_id": "XXXX",
+            "status": "2",
+            "start_at": "1745540700",
+            "end_at": "1745546400",
+            "begin_time": "0",
+            "lecturer_name": "Lecturer A",
+            "is_live": "1",
+            "is_public": "2",
+            "multi_type": "course_live",
+            "course_title": "Course 10",
+            "teacher_name": "Lecturer A"
+          }
+        ]
+      },
+      {
+        "day": "2025-04-26",
+        "course": []
+      },
+      {
+        "day": "2025-04-27",
+        "course": []
+      }
+    ]
+  }
+}

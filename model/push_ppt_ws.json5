@@ -1,0 +1,15 @@
+{
+  "type": "push_ppt",
+  "course_id": "1234",
+  "sub_id": "5678",
+  "ppt_id": 987654,
+  "ppt": {
+    "detecttype": "ppt",
+    "is_key": false,
+    "pptimgurl": "https:\/\/example.com\/ppt\/image12345.jpg",
+    "status": "running",
+    "taskid": "a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6",
+    "pptthumb": "https:\/\/example.com\/ppt\/thumb12345.jpg",
+    "created": "1745198298240"
+  }
+}

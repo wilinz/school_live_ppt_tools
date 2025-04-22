@@ -1,0 +1,67 @@
+{
+  "code": 0,
+  "list": [
+    {
+      "content": "{\"detecttype\":\"ppt\",\"is_key\":false,\"pptimgurl\":\"https:\\/\\/example.com\\/ppt\\/image123.jpg\",\"status\":\"running\",\"taskid\":\"a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6\",\"pptthumb\":\"https:\\/\\/example.com\\/ppt\\/thumb123.jpg\",\"created\":\"1745195039000\"}",
+      "course_id": 1234,
+      "create_time": "2025-04-21 08:23:59",
+      "created_sec": 4,
+      "default": 1,
+      "id": 123456,
+      "sub_id": 654321,
+      "update_time": "2025-04-21 08:23:59"
+    },
+    {
+      "content": "{\"detecttype\":\"ppt\",\"is_key\":false,\"pptimgurl\":\"https:\\/\\/example.com\\/ppt\\/image456.jpg\",\"status\":\"running\",\"taskid\":\"a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p7\",\"pptthumb\":\"https:\\/\\/example.com\\/ppt\\/thumb456.jpg\",\"created\":\"1745195091480\"}",
+      "course_id": 5678,
+      "create_time": "2025-04-21 08:24:50",
+      "created_sec": 50,
+      "default": 1,
+      "id": 123457,
+      "sub_id": 654322,
+      "update_time": "2025-04-21 08:24:50"
+    },
+    {
+      "content": "{\"detecttype\":\"ppt\",\"is_key\":false,\"pptimgurl\":\"https:\\/\\/example.com\\/ppt\\/image789.jpg\",\"status\":\"running\",\"taskid\":\"a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p8\",\"pptthumb\":\"https:\\/\\/example.com\\/ppt\\/thumb789.jpg\",\"created\":\"1745195172760\"}",
+      "course_id": 91011,
+      "create_time": "2025-04-21 08:26:12",
+      "created_sec": 131,
+      "default": 1,
+      "id": 123458,
+      "sub_id": 654323,
+      "update_time": "2025-04-21 08:26:12"
+    },
+    {
+      "content": "{\"detecttype\":\"ppt\",\"is_key\":false,\"pptimgurl\":\"https:\\/\\/example.com\\/ppt\\/image101112.jpg\",\"status\":\"running\",\"taskid\":\"a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p9\",\"pptthumb\":\"https:\\/\\/example.com\\/ppt\\/thumb101112.jpg\",\"created\":\"1745195293640\"}",
+      "course_id": 121314,
+      "create_time": "2025-04-21 08:28:13",
+      "created_sec": 252,
+      "default": 1,
+      "id": 123459,
+      "sub_id": 654324,
+      "update_time": "2025-04-21 08:28:13"
+    },
+    {
+      "content": "{\"detecttype\":\"ppt\",\"is_key\":false,\"pptimgurl\":\"https:\\/\\/example.com\\/ppt\\/image131415.jpg\",\"status\":\"running\",\"taskid\":\"a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p10\",\"pptthumb\":\"https:\\/\\/example.com\\/ppt\\/thumb131415.jpg\",\"created\":\"1745195813680\"}",
+      "course_id": 161718,
+      "create_time": "2025-04-21 08:36:55",
+      "created_sec": 772,
+      "default": 1,
+      "id": 123460,
+      "sub_id": 654325,
+      "update_time": "2025-04-21 08:36:55"
+    },
+    {
+      "content": "{\"detecttype\":\"ppt\",\"is_key\":false,\"pptimgurl\":\"https:\\/\\/example.com\\/ppt\\/image161718.jpg\",\"status\":\"running\",\"taskid\":\"a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p11\",\"pptthumb\":\"https:\\/\\/example.com\\/ppt\\/thumb161718.jpg\",\"created\":\"1745195816480\"}",
+      "course_id": 192021,
+      "create_time": "2025-04-21 08:36:57",
+      "created_sec": 775,
+      "default": 1,
+      "id": 123461,
+      "sub_id": 654326,
+      "update_time": "2025-04-21 08:36:57"
+    }
+  ],
+  "msg": "查询成功",
+  "total": 6
+}

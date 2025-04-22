@@ -1,0 +1,147 @@
+{
+  "code": 200,
+  "message": "查询成功",
+  "params": {
+    "SFZH": "",
+    "account": "2222222222",
+    "avatar": "https://xxx/default_header.png",
+    "bindcode": "",
+    "created_at": "2024-04-07 11:33:02",
+    "currentRole": "student",
+    "default_role": "",
+    "disabled": 0,
+    "edu_level": "undergraduate",
+    "email": "",
+    "expire": 0,
+    "faceAuth": false,
+    "faceIdNeed": "no",
+    "icCard": "",
+    "id": 12345,
+    "info": "",
+    "iptv_bindcode": "",
+    "myroles": [
+      {
+        "cmc_role": "fdsfgdsgsdsdgwergaesdfrgb",
+        "code": "student",
+        "created_at": "2018-03-17 10:47:06",
+        "description": "",
+        "display_name": "学生",
+        "id": 16,
+        "isdefault": 1,
+        "status": 0
+      }
+    ],
+    "openid": "",
+    "pay_status": 0,
+    "phone": "12345678901",
+    "points": 0,
+    "realname": "张三",
+    "roles": [
+      {
+        "cmc_role": "fdsgwergregwregwrgwrg",
+        "code": "student",
+        "created_at": "2018-03-17 10:47:06",
+        "description": "",
+        "display_name": "学生",
+        "id": 16,
+        "status": 0
+      }
+    ],
+    "space": 0,
+    "structures": [
+      {
+        "code": "123",
+        "created_at": "2024-04-07 11:01:03",
+        "display_name": "xx学院",
+        "id": 123,
+        "level": 2,
+        "parent": {
+          "code": "111111",
+          "created_at": "2024-04-07 11:01:02",
+          "display_name": "xxx大学",
+          "id": 1111,
+          "level": 1,
+          "pcode": "",
+          "pid": 0,
+          "xydm": "",
+          "xymc": ""
+        },
+        "pcode": "111111",
+        "pid": 1111,
+        "xydm": "",
+        "xymc": ""
+      }
+    ],
+    "tenant": {
+      "data": {
+        "cmcGroup": {
+          "ServiceKeyFull": ",qpjxzlpg,qxkcpt",
+          "cmcApiDomain": "https://console.guet.edu.cn/api",
+          "cmcApiDomainCookieDomain": ".chinamcloud.cn",
+          "cmcApiDomainCookieId": "login_cmc_id",
+          "cmcApiDomainCookieTid": "login_cmc_tid",
+          "cmcApiDomainFull": "https://console.guet.edu.cn/api/cmc",
+          "flyPageDomain": "https://console.guet.edu.cn/pgc-app-api/",
+          "group_code": "42354235",
+          "group_id": "4532532afcbacf3242345325235325234234",
+          "login_name": "cmc3242ab",
+          "pgcDomain": "https://console.guet.edu.cn/pgc-app-api/",
+          "productId": "214128698abcfecd325235325",
+          "rpcCmcConsoleDomain": "https://console.guet.edu.cn",
+          "rpcCmcLoginDomain": "https://console.guet.edu.cn/api"
+        },
+        "cmsSync": {
+          "group_id": "64356345325abcdef",
+          "open": "1",
+          "role_ids": [
+            "123456789abcdef"
+          ]
+        },
+        "course": {
+          "analyzer_delay": 0,
+          "analyzer_interval": 0,
+          "openaudit": 0,
+          "rtcAbroadSimple": 1,
+          "rtcInteract": 1,
+          "rtcMaxStreams": 8,
+          "rtcScreenType": "split",
+          "rtcStudentStream": 1
+        },
+        "courseWatermark": {
+          "opacity": 40,
+          "open": 0,
+          "style": "tile"
+        },
+        "homepageModules": {
+          "default": "my",
+          "order": "square,my,today,knowledge"
+        },
+        "hudongTips": 0,
+        "hudongTipsAdvance": 0,
+        "playerVersion": 1,
+        "reg_allow": "0",
+        "zhiboketangAdvance": 0,
+        "zhiboketangDelay": 0,
+        "zhiboketangShowOrigin": 1
+      },
+      "expires": 2575411199,
+      "h5_url": "yjapp",
+      "id": 21,
+      "is_cloud": "no",
+      "lab_name": "",
+      "logo": "",
+      "tenant_code": "2132142134",
+      "tenant_name": "云教开发环境租户",
+      "url": "2132142134"
+    },
+    "tenant_id": 21,
+    "tutor": {
+      "myCourse": true,
+      "todayCourse": true
+    },
+    "type": 0,
+    "used_space": 0,
+    "verifyphone": 0,
+    "webrtc": "gortc"
+  }
+}
