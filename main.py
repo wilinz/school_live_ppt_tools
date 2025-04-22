@@ -56,9 +56,8 @@ class SchoolLive:
         else:
             return None
 
-    def __init__(self, cookie_header: str):
+    def __init__(self, cookie_header: str, token):
         super().__init__()
-        token, tenant_code = self.get_token_from_cookie_header(cookie_header)
         self.client.headers.update({
             'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
             'Accept': "application/json, text/plain, */*",
@@ -196,7 +195,8 @@ class SchoolLive:
 
         return token, tenant_code
 
-    def get_token_from_cookie_header(self, cookie_header: str) -> (str, str):
+    @staticmethod
+    def get_token_from_cookie_header(cookie_header: str) -> (str, str):
         cookies = cookie_header.split(";")
 
         token = None
@@ -303,7 +303,7 @@ def get_weekday_int():
 
 def get_course_id(week_schedules) -> (str, str):
     # Print week schedule details
-    day = get_weekday_int() - 1
+    day = get_weekday_int()
     day_schedule = week_schedules['result']['list'][day]
     for j, course in enumerate(day_schedule['course']):
         print(f"  Course {j+1}:")
@@ -330,8 +330,8 @@ print("Monday:", monday)
 print("Sunday:", sunday)
 
 cookie = input("请从浏览器拷贝 cookie header 的值过来：").strip()
-live = SchoolLive(cookie)
-token, tenant_code = live.get_token_from_cookie_header(cookie)
+token, tenant_code = SchoolLive.get_token_from_cookie_header(cookie)
+live = SchoolLive(cookie, token)
 
 print("token:", token)
 print("tenant_code:", tenant_code)
